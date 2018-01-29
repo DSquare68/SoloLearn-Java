@@ -9,18 +9,16 @@ public class Polynomial {
 	
 	static final int START=-50; // start point where we find roots
 	static final int END=50;    // end point where we find roots
-	static final double STEP=10;    // in checkIfRootsExist difference between two points. 
+	static final double STEP=0.5;    // in checkIfRootsExist difference between two points. 
 								//For example for 2: f(a) f(a+2), if values has different sign then root exists.
 	static int[] coeffiecents;
 	static double[] roots;
 	static int nrOfRoots=0;
-	//static int[] valiables;
 	 public static void main(String[] args) {
 		 Random r = new Random();
 		 int degree=r.nextInt(MAX_DEGREE)+1;
 		 coeffiecents = new int[degree];
 		 roots = new double[degree-1];
-		 //valiables = new int[MAX_DEGREE];
 		 for(int i =0;i<degree;i++) {
 			 coeffiecents[i]= r.nextInt(MAX_COEFFICENT)-MAX_COEFFICENT/2;
 		 }
@@ -56,20 +54,18 @@ public class Polynomial {
 	  *  If it finds root the diff is getting smaller for better approximation of root. 
 	  */
 	 private static void checkIfRootsExist(double start, double end, double diff) {
-		// System.out.println("S "+start+" B "+end+"   "+diff);
 		 
-		 if((0<=countPolynomial(start)&&countPolynomial(start)>-0.01)&&(countPolynomial(end-diff)<0.01&&countPolynomial(end-diff)>=0)) {
-			// System.out.println("fadafda");
+		 //Checking if the approximation of root is close enough
+		 if((diffrentSign(countPolynomial(start),countPolynomial(end-diff))&&(Math.abs(countPolynomial(end-diff))<0.01||Math.abs(countPolynomial(start))<0.01))) {
 			 if(nrOfRoots==roots.length) return;
-			 if(nrOfRoots==0||((start/end)/2)/roots[nrOfRoots]<1.1&&((start/end)/2/roots[nrOfRoots]>0.9))roots[nrOfRoots++]=(start+end)/2;
+			 roots[nrOfRoots++]=(start+end)/2; // adding root
 			 return;
 			 
 		 }
 		 if(diff<0.00001) return;
-		 //if(Math.abs(start/end)<0.01&&Math.abs(start/end)>0) return;
 		 double a=diff,b=start-diff;
 		 while(b<end+a){
-			//System.out.println("sign "+diffrentSign(countPolynomial(b),countPolynomial(b+a))+"     "+countPolynomial(b)+"    "+countPolynomial(b+a));
+			 if(countPolynomial(b)==0) roots[nrOfRoots++]=(start);
 			 if(diffrentSign(countPolynomial(b),countPolynomial(b+a))){
 				 checkIfRootsExist(b,b+a,a/2);
 			 }
