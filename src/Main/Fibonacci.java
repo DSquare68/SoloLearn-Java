@@ -1,10 +1,9 @@
 package Main;
 
-import java.math.MathContext;
 import java.util.Scanner;
 
 public class Fibonacci {
-	static int n;
+	static int n; // n should be  between 0 and 22 
 	public static void main(String[] args) {
 		@SuppressWarnings("resource")
 		Scanner s = new Scanner(System.in);
@@ -26,7 +25,7 @@ public class Fibonacci {
 		
 	}
 	private static long eulerBinetaEquation(double n) {
-		return (long) (1.0/Math.sqrt(5)*Math.pow((1+Math.sqrt(5))/2.0,n)-1/Math.sqrt(5)*Math.pow((1-Math.sqrt(5))/2,n));
+		return (long) (1.0/Math.sqrt(5)*Math.pow((1+Math.sqrt(5))/2.0,n)-1/Math.sqrt(5)*Math.pow((1-Math.sqrt(5))/2.0,n));
 	}
 	private static long binomialCoefficientFibonacci(int n) {
 		int f=0;
