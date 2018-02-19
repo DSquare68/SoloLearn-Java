@@ -19,7 +19,7 @@ public class Matrix
         int a;
         if(num==2||num==1) a=1; else a=num;
         det= getComplementMatrix(tab,num,-1,-1);
-        System.out.println("afdaaad");
+        System.out.println();
         int[][] deterTab = new int[num][num];
         for(int i=0;i<num;a=i++){
             for(int j=0;j<num;j++){

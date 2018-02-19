@@ -25,6 +25,7 @@ public class Polynomial {
 		 System.out.println(printPolynomial());
 		 checkIfRootsExist(START, END, STEP);
 		 for(int i=0;i<nrOfRoots;i++){
+			 System.out.print("Roots: ");
 			 System.out.print(roots[i]+"  ");
 		 }
 		 if(nrOfRoots==0) System.out.println("No roots");
