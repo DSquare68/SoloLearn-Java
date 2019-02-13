@@ -8,6 +8,7 @@ public class NumbersSnake {
 		
 		@SuppressWarnings("resource")
 		Scanner s = new Scanner(System.in);
+		System.out.println("Enter odd number");
 		size = s.nextInt();
 		int[][] snake= getSnakeRecursively(size, size);
 		print(snake);
