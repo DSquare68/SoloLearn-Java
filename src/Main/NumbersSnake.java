@@ -9,6 +9,7 @@ public class NumbersSnake {
 		@SuppressWarnings("resource")
 		Scanner s = new Scanner(System.in);
 		size = s.nextInt();
+		size = size%2==0?size-1:size;
 		int[][] snake= getSnakeRecursively(size, size);
 		print(snake);
 	}
