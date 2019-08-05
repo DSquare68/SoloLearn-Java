@@ -8,6 +8,7 @@ public class Star {
 		@SuppressWarnings("resource")
 		Scanner s = new Scanner(System.in);
 		int size = s.nextInt();
+		size = size%2==0?size-1:size;
 		int[][] square = makeMath(size);
 		print(square);
 	}
